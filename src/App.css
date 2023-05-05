@@ -3,8 +3,11 @@ h1 {
 }
 
 button {
-  background-color: red;
-  color: white;
   border-radius: 8px;
   padding: 5px 16px;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 1rem;
 }
