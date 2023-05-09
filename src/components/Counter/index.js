@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 
 export const Counter = () => {
-  // [state, setState]
   const [count, setCount] = useState(1)
+  // [state, setState]
 
   const handleAdd = () => {
     console.log('Adicionar');
     setCount(count + 1)
   }
-
-  console.log(count)
 
   return (
     <>

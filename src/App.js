@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import { Button } from './components/Button';
 import { Card } from './components/Card';
 import { Counter } from './components/Counter';
 import { Separator } from './components/Separator';
+import { Text } from './components/Text';
 import { Title } from './components/Title';
 
+const courses = [
+  { name: 'JS', instructor: 'Sabino', enable: true },
+  { name: 'CSS', instructor: 'Cicero', enable: true },
+  { name: 'JS/CSS Pro', instructor: 'Sabino', enable: true },
+  { name: 'React JS', instructor: 'Luciel', enable: true },
+  { name: 'MySQL', instructor: 'Cicero', enable: false }
+]
+
 export function App() {
+  const [count, setCount] = useState(0)
 
   const handleClick = (event) => {
     console.log('Clicou no botão')
@@ -17,6 +27,18 @@ export function App() {
     console.log('Clicou duas vezes no botão')
   }
 
+  const handleAddCount = () => setCount(count + 1)
+
+  const handleResetCount = () => setCount(0)
+
+  function handleRemoveCount() {
+    setCount(count - 1)
+  }
+
+  useEffect(() => {
+    console.log('Use Effect')
+    // setCount(count + 1)
+  }, [count])
 
   return (
     <>
@@ -40,6 +62,57 @@ export function App() {
 
         <Button text='Criar carrinho' />
       </div>
-    </ >
+
+      <Separator text='Atividade - Contador' />
+
+      <h3>{count}</h3>
+
+      <div className='buttonContainer'>
+        <Button text='Somar' onClick={handleAddCount} />
+
+        <Button text='Zerar' variant='secondary' onClick={handleResetCount} />
+
+        <Button text='Subtrair' onClick={handleRemoveCount} />
+      </div>
+
+      <Separator text='JSX - Expressões - Condicionais' />
+
+      <div>
+        {true ? 'Verdadeiro' : false} <br />
+
+        {true && 'Verdadeiro'} <br />
+
+        {'Verdadeiro' || 'Falso'} <br />
+
+        {true ? <Button text='Verdadeiro' /> : <Button text='Falso' variant='secondary' />} <br />
+
+        {false ? <Button text='Verdadeiro' /> : null}
+      </div>
+
+      <Separator text='JSX - Map' />
+      <div>
+        <ul>
+          {courses.map((course) => (
+            <li key={course.name}>
+              {course.enable ? (
+                <strong>
+                  {course.name} - {course.instructor}
+                </strong>
+              ) : (
+                <del>{course.name} - {course.instructor}</del>
+              )}
+            </li>
+          )
+          )}
+        </ul>
+      </div>
+
+      <Separator text='Children' />
+      <Text>
+        <strong>
+          Conteúdo do componente
+        </strong>
+      </Text>
+    </>
   );
 }

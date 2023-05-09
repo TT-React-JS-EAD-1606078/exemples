@@ -23,3 +23,25 @@
 - Hooks
   - useState
 - Default exports
+
+# Aula 3
+
+- JSX
+  - Expressões
+    - Soma
+    - Map
+    - Funções
+  - Condicionais
+    - Condicional ternário
+    - Condicional AND com &&
+  - Atributos
+  - Listas
+  - Keys em listas
+- Hooks
+  - useState
+  - useEffect
+    - Sem array de dependências
+    - Com array de dependências vazio
+    - Com array de dependências com state
+    - Cuidados ao usar
+- Children

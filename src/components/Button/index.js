@@ -1,8 +1,12 @@
-import './styles.css'
+import "./styles.css";
 
-export const Button = ({ text, variant }) => {
-  console.log(variant)
+export const Button = ({ text, variant, onClick }) => {
   return (
-    <button className={variant === 'secondary' ? 'buttonSecondary' : 'button'}>{text}</button>
-  )
-}
+    <button
+      onClick={onClick}
+      className={variant === "secondary" ? "buttonSecondary" : "button"}
+    >
+      {text}
+    </button>
+  );
+};
