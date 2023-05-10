@@ -6,6 +6,7 @@ import { Counter } from './components/Counter';
 import { Separator } from './components/Separator';
 import { Text } from './components/Text';
 import { Title } from './components/Title';
+import { ControlledInput } from './components/ControlledInput';
 
 const courses = [
   { name: 'JS', instructor: 'Sabino', enable: true },
@@ -113,6 +114,9 @@ export function App() {
           Conteúdo do componente
         </strong>
       </Text>
+
+      <Separator text='Input controlado' />
+      <ControlledInput />
     </>
   );
 }
